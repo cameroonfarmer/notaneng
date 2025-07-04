@@ -9,7 +9,7 @@
             const fallback = document.querySelector('.video-fallback');
             
             try {
-                // If iframe is blocked, show fallback.
+                // If iframe is blocked, show fallback
                 if (!iframe.contentDocument && !iframe.contentWindow) {
                     iframe.style.display = 'none';
                     fallback.style.display = 'flex';
@@ -113,7 +113,7 @@
     <div class="container">
         <div class="video-container" onclick="openVideo()">
             <iframe 
-                src="https://www.youtube-nocookie.com/embed/J5uIo8vHARg?autoplay=1&mute=1" 
+                src="https://www.youtube-nocookie.com/embed/J5uIo8vHARg?autoplay=1&mute=0" 
                 title="YouTube video player" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
