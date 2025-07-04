@@ -9,7 +9,7 @@
             const fallback = document.querySelector('.video-fallback');
             
             try {
-                // If iframe is blocked, show fallback
+                // If iframe is blocked, show fallback.
                 if (!iframe.contentDocument && !iframe.contentWindow) {
                     iframe.style.display = 'none';
                     fallback.style.display = 'flex';
