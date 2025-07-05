@@ -3,6 +3,19 @@
             window.open('https://www.youtube.com/watch?v=J5uIo8vHARg', '_blank');
         }
         
+        function incrementCounter() {
+            let count = localStorage.getItem('subscribeClicks') || 0;
+            count = parseInt(count) + 1;
+            localStorage.setItem('subscribeClicks', count);
+            document.getElementById('clickCounter').textContent = count;
+        }
+        
+        // Load counter on page load
+        window.onload = function() {
+            const count = localStorage.getItem('subscribeClicks') || 0;
+            document.getElementById('clickCounter').textContent = count;
+        };
+        
         // Check if iframe is blocked and show fallback
         setTimeout(() => {
             const iframe = document.querySelector('iframe');
@@ -132,13 +145,14 @@
         </div>
         
         <div style="text-align: center;">
-            <a href="https://naen.beehiiv.com/subscribe" class="subscribe-button">
+            <a href="https://naen.beehiiv.com/subscribe" class="subscribe-button" onclick="incrementCounter()">
                 <span style="font-weight: 300; font-size: 0.8em;">Sub to</span><br>
                 <span style="font-weight: bold; font-style: italic;">not An Engineering Newsletter</span>
             </a>
             <p style="margin-top: 25px; font-size: 0.75rem; color: #666; max-width: 500px; line-height: 1.5;">
                 I'd love for you to subscribe to my newsletter for engineers who think beyond code—startup lessons, career moves, and honest reflections. It's not big, but it's built with care.
             </p>
+            <div id="clickCounter" style="margin-top: 15px; font-size: 0.7rem; color: #999;">0</div>
         </div>
     </div>
 </body>
