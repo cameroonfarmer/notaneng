@@ -10,10 +10,20 @@
             document.getElementById('clickCounter').textContent = count;
         }
         
-        // Load counter on page load
+        function incrementPageViews() {
+            let pageViews = localStorage.getItem('pageViews') || 0;
+            pageViews = parseInt(pageViews) + 1;
+            localStorage.setItem('pageViews', pageViews);
+            document.getElementById('pageCounter').textContent = pageViews;
+        }
+        
+        // Load counters on page load
         window.onload = function() {
-            const count = localStorage.getItem('subscribeClicks') || 0;
-            document.getElementById('clickCounter').textContent = count;
+            const clickCount = localStorage.getItem('subscribeClicks') || 0;
+            document.getElementById('clickCounter').textContent = clickCount;
+            
+            // Increment and display page views
+            incrementPageViews();
         };
         
         // Check if iframe is blocked and show fallback
@@ -153,6 +163,7 @@
                 I'd love for you to subscribe to my newsletter for engineers who think beyond code—startup lessons, career moves, and honest reflections. It's not big, but it's built with care.
             </p>
             <div id="clickCounter" style="margin-top: 15px; font-size: 0.7rem; color: #999;">0</div>
+            <div id="pageCounter" style="margin-top: 5px; font-size: 0.7rem; color: #999;">0</div>
         </div>
     </div>
 </body>
